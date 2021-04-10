@@ -2,7 +2,12 @@ import React from 'react';
 import styles from './Button.module.scss'
 import cn from "classnames";
 
-
+type PropsType = {
+  disabled?: boolean
+  color?: 'green' | 'gray'| 'blue',
+  onClick?: (args: any) => void,
+  className?: string
+}
 
 const colors = {
   green: styles.buttonGreen,
@@ -10,7 +15,7 @@ const colors = {
   blue: styles.buttonBlue,
 };
 
-export const Button = ({children, disabled, color, onClick, className}) => {
+export const Button: React.FC<PropsType> = ({children, disabled, color, onClick, className}) => {
   return (
     <button
       onClick={onClick}
