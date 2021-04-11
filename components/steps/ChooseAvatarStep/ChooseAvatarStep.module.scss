@@ -1,15 +1,3 @@
-.handWaveImg {
-  animation-name: wave-animation;
-  animation-duration: 3s;
-  animation-iteration-count: 1;
-  transform-origin: 70% 70%;
-  display: inline-block;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 5px;
-  margin-bottom: 3px;
-}
-
 .block {
   margin: 100px auto;
   text-align: center;
@@ -23,6 +11,13 @@
 
 .whiteBlock {
   width: 460px;
+}
+
+.twitterLogo {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  margin-right: 6px;
 }
 
 .title {

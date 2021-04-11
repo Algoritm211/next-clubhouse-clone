@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './EnterStep.module.scss';
 import ModalBlock from "../../ModalBlock/ModalBlock";
 import Button from "../../UI/Button/Button";
+import {StepContext} from "../../../pages";
 
 const EnterStep = () => {
+  const {nextStep} = useContext(StepContext)
+
   return (
     <ModalBlock className={styles.block}>
       <h3 className={styles.title}>
@@ -15,7 +18,7 @@ const EnterStep = () => {
         youches, we’re adding people gradually to make sure nothing breaks :)
       </p>
       <div>
-        <Button>
+        <Button onClick={nextStep}>
           Get your username
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
