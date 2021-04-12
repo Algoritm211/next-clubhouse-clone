@@ -22,7 +22,7 @@ export const StepContext = React.createContext({} as StepContextType)
 
 export default function Home() {
 
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(5)
   const CurrentStep = registrationSteps[step]
 
   const goNextStep = () => {
@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div>
       <StepContext.Provider value={{nextStep: goNextStep, currentStep: step}}>
-        <CurrentStep  />
+        <CurrentStep />
       </StepContext.Provider>
     </div>
   )
