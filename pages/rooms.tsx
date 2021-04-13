@@ -4,6 +4,7 @@ import { RoomType } from '../types/types';
 import Button from "../components/UI/Button/Button";
 import axios from 'axios';
 import RoomCard from "../components/RoomCard/RoomCard";
+import Link from 'next/link';
 
 type RoomsType = {
   rooms: Array<RoomType>
@@ -12,7 +13,13 @@ type RoomsType = {
 const Rooms: React.FC<RoomsType> = ({rooms}) => {
 
   const conversationBlock = rooms.map((conversation, index) => {
-    return <RoomCard room={conversation} key={conversation.id}/>
+    return (
+      <Link href={`/room/${conversation.id}`} key={conversation.id}>
+        <a>
+          <RoomCard room={conversation} />
+        </a>
+      </Link>
+    )
   })
 
   return (
@@ -32,12 +39,16 @@ const Rooms: React.FC<RoomsType> = ({rooms}) => {
 };
 
 export const getServerSideProps = async () => {
-  const {data} = await axios.get('http://localhost:3000/rooms.json')
-  console.log(data)
-  return {
-    props: {
-      rooms: data
+  try {
+    const {data} = await axios.get('http://localhost:3000/rooms.json')
+    return {
+      props: {
+        rooms: data
+      }
     }
+  } catch (error) {
+    console.log(error)
+    return { props: { rooms: [] }}
   }
 }
 
