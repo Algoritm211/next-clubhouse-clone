@@ -22,7 +22,7 @@ export const StepContext = React.createContext({} as StepContextType)
 
 export default function Home() {
 
-  const [step, setStep] = useState(5)
+  const [step, setStep] = useState(1)
   const CurrentStep = registrationSteps[step]
 
   const goNextStep = () => {
